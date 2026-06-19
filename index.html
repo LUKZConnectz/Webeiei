@@ -7,9 +7,11 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+    <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="styles.css" />
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
   </head>
   <body>
     <header class="site-header">
@@ -17,7 +19,10 @@
         <a class="brand" href="#" aria-label="Webeiei home">
           <span class="brand-mark">X</span>
         </a>
-        <ul class="nav-menu">
+        <button class="mobile-toggle" type="button" aria-controls="main-menu" aria-expanded="false" aria-label="เปิดเมนู">
+          <ion-icon name="menu"></ion-icon>
+        </button>
+        <ul class="nav-menu" id="main-menu">
           <li><a class="nav-link active" href="#"><ion-icon name="home"></ion-icon><span>หน้า<br />หลัก</span></a></li>
           <li><a class="nav-link" href="#"><ion-icon name="briefcase"></ion-icon><span>ร้าน<br />ค้า</span></a></li>
           <li><a class="nav-link" href="#"><ion-icon name="earth"></ion-icon><span>สุ่ม<br />รางวัล</span></a></li>
@@ -26,23 +31,44 @@
           <li><a class="nav-link" href="#"><ion-icon name="wallet"></ion-icon><span>เติม<br />เงิน</span></a></li>
           <li><a class="nav-link" href="#"><ion-icon name="help"></ion-icon><span>วิธี<br />ใช้</span></a></li>
           <li><a class="nav-link" href="#"><ion-icon name="call"></ion-icon><span>ติดต่อ</span></a></li>
-          <li><a class="nav-link" href="#"><ion-icon name="log-in"></ion-icon><span>เข้าสู่<br />ระบบ</span></a></li>
+          <li><button class="nav-link auth-login" type="button"><ion-icon name="log-in"></ion-icon><span>เข้าสู่<br />ระบบ</span></button></li>
         </ul>
-        <a class="signup-button" href="#"><ion-icon name="person-add"></ion-icon><span>สมัคร<br />สมาชิก</span></a>
+        <button class="signup-button auth-register" type="button"><ion-icon name="person-add"></ion-icon><span>สมัคร<br />สมาชิก</span></button>
+        <div class="user-chip" hidden>
+          <ion-icon name="person-circle"></ion-icon>
+          <span class="user-chip-name">สมาชิก</span>
+          <button class="logout-button" type="button">ออก</button>
+        </div>
       </nav>
     </header>
 
     <main class="page-shell">
       <section class="hero-slider" aria-label="โปรโมชั่น">
         <button class="slider-arrow" aria-label="ก่อนหน้า"><ion-icon name="chevron-back"></ion-icon></button>
-        <strong>1440 x 300</strong>
+        <div class="hero-copy">
+          <span class="hero-pill">TAIWAN STYLE • Tailwind Ready</span>
+          <strong>1440 x 300</strong>
+          <p>ระบบสมาชิกใช้งานง่าย รองรับมือถือ พร้อมแจ้งเตือน SweetAlert2</p>
+        </div>
         <button class="slider-arrow" aria-label="ถัดไป"><ion-icon name="chevron-forward"></ion-icon></button>
+      </section>
+
+      <section class="auth-panel" aria-label="ระบบสมาชิก">
+        <div>
+          <span class="panel-eyebrow">Member Center</span>
+          <h1>ล็อคอิน / สมัครสมาชิก</h1>
+          <p>สร้างบัญชีทดลองบนเครื่องของคุณด้วย localStorage เหมาะสำหรับนำไปต่อหลังบ้านจริงในขั้นถัดไป</p>
+        </div>
+        <div class="auth-actions">
+          <button class="primary-action auth-register" type="button">สมัครสมาชิก</button>
+          <button class="secondary-action auth-login" type="button">เข้าสู่ระบบ</button>
+        </div>
       </section>
 
       <section class="stats-grid" aria-label="สถิติร้านค้า">
         <article class="stat-card">
           <ion-icon name="person-outline"></ion-icon>
-          <div><h2>สมาชิก<br />ทั้งหมด</h2><p>58 คน</p></div>
+          <div><h2>สมาชิก<br />ทั้งหมด</h2><p id="member-count">58 คน</p></div>
         </article>
         <article class="stat-card">
           <ion-icon name="list"></ion-icon>
@@ -65,5 +91,7 @@
         </div>
       </section>
     </main>
+
+    <script src="script.js"></script>
   </body>
 </html>
