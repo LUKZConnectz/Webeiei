@@ -65,7 +65,6 @@ button { font: inherit; }
   place-items: center;
   width: 44px;
   height: 44px;
-  margin-left: auto;
   color: var(--taiwan-red);
   background: #fff1f4;
   border: 1px solid rgba(225, 29, 72, 0.18);
@@ -85,7 +84,7 @@ button { font: inherit; }
 }
 
 .nav-link,
-.signup-button {
+.login-button {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -106,7 +105,7 @@ button { font: inherit; }
 }
 
 .nav-link ion-icon,
-.signup-button ion-icon { font-size: 1.1rem; }
+.login-button ion-icon { font-size: 1.1rem; }
 
 .nav-link:hover,
 .nav-link.active {
@@ -115,16 +114,25 @@ button { font: inherit; }
   transform: translateY(-2px);
 }
 
-.signup-button,
+.login-button,
 .primary-action {
   color: #fff;
   background: linear-gradient(135deg, var(--taiwan-red) 0%, #fb7185 100%);
   box-shadow: 0 10px 24px rgba(225, 29, 72, 0.28);
 }
 
-.signup-button {
-  min-width: 94px;
-  height: 58px;
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-left: auto;
+}
+
+.login-button {
+  min-width: 116px;
+  height: 52px;
+  padding: 0 18px;
+  border-radius: 999px;
 }
 
 .is-muted { opacity: 0.55; }
@@ -156,7 +164,7 @@ button { font: inherit; }
 
 .page-shell {
   width: min(1060px, calc(100% - 32px));
-  margin: 24px auto 48px;
+  margin: 18px auto 48px;
 }
 
 .hero-slider {
@@ -358,8 +366,30 @@ button { font: inherit; }
   animation: ticker-scroll 16s linear infinite;
 }
 
+body.modal-open { overflow: hidden; }
+
+.auth-modal[hidden] { display: none; }
+
+.auth-modal { position: fixed; inset: 0; z-index: 50; display: grid; place-items: center; padding: 18px; }
+.auth-modal__backdrop { position: absolute; inset: 0; background: rgba(13, 19, 26, 0.62); backdrop-filter: blur(10px); }
+.auth-modal__card { position: relative; z-index: 1; width: min(430px, 100%); overflow: hidden; background: #fff; border-radius: 28px; box-shadow: 0 26px 80px rgba(7, 14, 22, 0.34); }
+.auth-modal__close { position: absolute; top: 14px; right: 14px; z-index: 2; display: grid; place-items: center; width: 38px; height: 38px; color: #fff; background: rgba(255,255,255,0.18); border: 1px solid rgba(255,255,255,0.24); border-radius: 999px; cursor: pointer; }
+.auth-modal__hero { padding: 28px 28px 24px; color: #fff; background: linear-gradient(135deg, var(--taiwan-red), var(--taiwan-blue)); }
+.auth-modal__icon { display: grid; place-items: center; width: 54px; height: 54px; margin-bottom: 14px; background: rgba(255,255,255,0.18); border-radius: 18px; font-size: 1.8rem; }
+.auth-modal__hero p, .auth-modal__hero h2 { margin: 0; }
+.auth-modal__hero p { opacity: 0.86; font-weight: 700; }
+.auth-modal__hero h2 { font-size: 2rem; font-weight: 800; }
+.auth-form { display: grid; gap: 10px; padding: 22px 28px 8px; }
+.auth-form label { font-weight: 800; }
+.auth-form input { width: 100%; min-height: 48px; padding: 0 14px; border: 1px solid #dfe7ee; border-radius: 14px; font: inherit; outline: none; }
+.auth-form input:focus { border-color: var(--taiwan-blue); box-shadow: 0 0 0 4px rgba(15, 103, 177, 0.12); }
+.auth-modal:not(.is-register) .register-only { display: none; }
+.auth-error { margin: 2px 0 0; padding: 10px 12px; color: #9f1239; background: #fff1f4; border-radius: 12px; font-weight: 700; }
+.auth-submit { min-height: 50px; margin-top: 4px; color: #fff; background: linear-gradient(135deg, var(--taiwan-red), #fb7185); border: 0; border-radius: 999px; font-weight: 800; cursor: pointer; }
+.auth-switch { margin: 0; padding: 10px 28px 26px; text-align: center; color: var(--muted); font-weight: 700; }
+.auth-switch button { color: var(--taiwan-blue); background: transparent; border: 0; font-weight: 800; cursor: pointer; }
+
 .swal2-popup { font-family: "Kanit", system-ui, sans-serif; border-radius: 22px; }
-.swal2-input { border-radius: 12px; }
 
 @keyframes ticker-scroll {
   from { transform: translateX(100%); }
@@ -369,7 +399,6 @@ button { font: inherit; }
 @media (max-width: 960px) {
   .navbar { flex-wrap: wrap; padding: 10px 0; }
   .mobile-toggle { display: grid; }
-  .signup-button { margin-left: 0; }
   .nav-menu {
     display: none;
     order: 5;
@@ -384,13 +413,14 @@ button { font: inherit; }
 }
 
 @media (max-width: 600px) {
-  .navbar { gap: 10px; }
-  .brand-mark { width: 50px; font-size: 2.2rem; }
-  .signup-button { min-width: auto; flex: 1; }
+  .navbar { gap: 10px; width: min(100% - 24px, 1160px); }
+  .brand-mark { width: 50px; height: 42px; font-size: 2.2rem; }
+  .header-actions { gap: 8px; }
+  .login-button { min-width: 104px; height: 44px; padding: 0 14px; }
   .user-chip { order: 4; width: 100%; justify-content: center; }
-  .page-shell { width: min(100% - 20px, 1060px); margin-top: 16px; }
-  .hero-slider { min-height: 220px; padding: 18px 12px; }
-  .hero-slider strong { font-size: clamp(2.15rem, 14vw, 3.25rem); }
+  .page-shell { width: min(100% - 20px, 1060px); margin-top: 14px; }
+  .hero-slider { min-height: 188px; padding: 16px 12px; }
+  .hero-slider strong { font-size: clamp(2rem, 12vw, 3rem); }
   .slider-arrow { width: 38px; height: 38px; font-size: 1.45rem; }
   .auth-actions { width: 100%; flex-direction: column; }
   .primary-action, .secondary-action { width: 100%; }
