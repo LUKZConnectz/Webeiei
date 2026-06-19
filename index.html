@@ -19,9 +19,6 @@
         <a class="brand" href="#" aria-label="Webeiei home">
           <span class="brand-mark">X</span>
         </a>
-        <button class="mobile-toggle" type="button" aria-controls="main-menu" aria-expanded="false" aria-label="เปิดเมนู">
-          <ion-icon name="menu"></ion-icon>
-        </button>
         <ul class="nav-menu" id="main-menu">
           <li><a class="nav-link active" href="#"><ion-icon name="home"></ion-icon><span>หน้า<br />หลัก</span></a></li>
           <li><a class="nav-link" href="#"><ion-icon name="briefcase"></ion-icon><span>ร้าน<br />ค้า</span></a></li>
@@ -31,9 +28,14 @@
           <li><a class="nav-link" href="#"><ion-icon name="wallet"></ion-icon><span>เติม<br />เงิน</span></a></li>
           <li><a class="nav-link" href="#"><ion-icon name="help"></ion-icon><span>วิธี<br />ใช้</span></a></li>
           <li><a class="nav-link" href="#"><ion-icon name="call"></ion-icon><span>ติดต่อ</span></a></li>
-          <li><button class="nav-link auth-login" type="button"><ion-icon name="log-in"></ion-icon><span>เข้าสู่<br />ระบบ</span></button></li>
+          <li><button class="nav-link auth-register" type="button"><ion-icon name="person-add"></ion-icon><span>สมัคร<br />สมาชิก</span></button></li>
         </ul>
-        <button class="signup-button auth-register" type="button"><ion-icon name="person-add"></ion-icon><span>สมัคร<br />สมาชิก</span></button>
+        <div class="header-actions">
+          <button class="login-button auth-login" type="button"><ion-icon name="log-in"></ion-icon><span>เข้าสู่ระบบ</span></button>
+          <button class="mobile-toggle" type="button" aria-controls="main-menu" aria-expanded="false" aria-label="เปิดเมนู">
+            <ion-icon name="menu"></ion-icon>
+          </button>
+        </div>
         <div class="user-chip" hidden>
           <ion-icon name="person-circle"></ion-icon>
           <span class="user-chip-name">สมาชิก</span>
@@ -46,9 +48,9 @@
       <section class="hero-slider" aria-label="โปรโมชั่น">
         <button class="slider-arrow" aria-label="ก่อนหน้า"><ion-icon name="chevron-back"></ion-icon></button>
         <div class="hero-copy">
-          <span class="hero-pill">TAIWAN STYLE • Tailwind Ready</span>
-          <strong>1440 x 300</strong>
-          <p>ระบบสมาชิกใช้งานง่าย รองรับมือถือ พร้อมแจ้งเตือน SweetAlert2</p>
+          <span class="hero-pill">WEBEIEI MEMBER</span>
+          <strong>ล็อคอินง่าย</strong>
+          <p>เข้าสู่ระบบหรือสมัครสมาชิกผ่านหน้าต่างโมเดิลที่ใช้งานง่ายบนมือถือ</p>
         </div>
         <button class="slider-arrow" aria-label="ถัดไป"><ion-icon name="chevron-forward"></ion-icon></button>
       </section>
@@ -56,8 +58,8 @@
       <section class="auth-panel" aria-label="ระบบสมาชิก">
         <div>
           <span class="panel-eyebrow">Member Center</span>
-          <h1>ล็อคอิน / สมัครสมาชิก</h1>
-          <p>สร้างบัญชีทดลองบนเครื่องของคุณด้วย localStorage เหมาะสำหรับนำไปต่อหลังบ้านจริงในขั้นถัดไป</p>
+          <h1>ศูนย์สมาชิก</h1>
+          <p>จัดการบัญชีผ่านโมเดิล ไม่รบกวนหน้าแรก และรองรับการใช้งานบนมือถือ</p>
         </div>
         <div class="auth-actions">
           <button class="primary-action auth-register" type="button">สมัครสมาชิก</button>
@@ -91,6 +93,29 @@
         </div>
       </section>
     </main>
+
+    <div class="auth-modal" id="auth-modal" hidden>
+      <div class="auth-modal__backdrop" data-close-modal></div>
+      <section class="auth-modal__card" role="dialog" aria-modal="true" aria-labelledby="auth-modal-title">
+        <button class="auth-modal__close" type="button" aria-label="ปิด" data-close-modal><ion-icon name="close"></ion-icon></button>
+        <div class="auth-modal__hero">
+          <span class="auth-modal__icon"><ion-icon name="shield-checkmark"></ion-icon></span>
+          <p>Webeiei Account</p>
+          <h2 id="auth-modal-title">เข้าสู่ระบบ</h2>
+        </div>
+        <form class="auth-form" id="auth-form" novalidate>
+          <label class="register-only" for="auth-username">ชื่อผู้ใช้</label>
+          <input class="register-only" id="auth-username" name="username" autocomplete="username" placeholder="ชื่อผู้ใช้" />
+          <label for="auth-email">อีเมล</label>
+          <input id="auth-email" name="email" type="email" autocomplete="email" placeholder="your@email.com" required />
+          <label for="auth-password">รหัสผ่าน</label>
+          <input id="auth-password" name="password" type="password" autocomplete="current-password" placeholder="รหัสผ่าน" required minlength="6" />
+          <p class="auth-error" id="auth-error" role="alert" hidden></p>
+          <button class="auth-submit" type="submit">เข้าสู่ระบบ</button>
+        </form>
+        <p class="auth-switch"><span id="auth-switch-text">ยังไม่มีบัญชี?</span> <button id="auth-switch-button" type="button">สมัครสมาชิก</button></p>
+      </section>
+    </div>
 
     <script src="script.js"></script>
   </body>
