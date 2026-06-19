@@ -3,120 +3,70 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Webeiei - Modern Game Portal</title>
+    <title>Dime Mock App</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
-    <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="styles.css" />
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
   </head>
   <body>
-    <header class="site-header">
-      <nav class="navbar" aria-label="เมนูหลัก">
-        <a class="brand" href="#" aria-label="Webeiei home">
-          <span class="brand-mark">X</span>
-        </a>
-        <ul class="nav-menu" id="main-menu">
-          <li><a class="nav-link active" href="#"><ion-icon name="home"></ion-icon><span>หน้า<br />หลัก</span></a></li>
-          <li><a class="nav-link" href="#"><ion-icon name="briefcase"></ion-icon><span>ร้าน<br />ค้า</span></a></li>
-          <li><a class="nav-link" href="#"><ion-icon name="earth"></ion-icon><span>สุ่ม<br />รางวัล</span></a></li>
-          <li><a class="nav-link" href="#"><ion-icon name="game-controller"></ion-icon><span>บริการ</span></a></li>
-          <li><a class="nav-link" href="#"><ion-icon name="chatbubbles"></ion-icon><span>แชทฟรี<br />แอดมิน</span></a></li>
-          <li><a class="nav-link" href="#"><ion-icon name="wallet"></ion-icon><span>เติม<br />เงิน</span></a></li>
-          <li><a class="nav-link" href="#"><ion-icon name="help"></ion-icon><span>วิธี<br />ใช้</span></a></li>
-          <li><a class="nav-link" href="#"><ion-icon name="call"></ion-icon><span>ติดต่อ</span></a></li>
-          <li><button class="nav-link auth-register" type="button"><ion-icon name="person-add"></ion-icon><span>สมัคร<br />สมาชิก</span></button></li>
-        </ul>
-        <div class="header-actions">
-          <button class="login-button auth-login" type="button"><ion-icon name="log-in"></ion-icon><span>เข้าสู่ระบบ</span></button>
-          <button class="mobile-toggle" type="button" aria-controls="main-menu" aria-expanded="false" aria-label="เปิดเมนู">
-            <ion-icon name="menu"></ion-icon>
-          </button>
+    <main class="phone-shell" aria-label="Dime mobile app mockup">
+      <section class="screen screen-home is-active" id="home-screen" aria-label="หน้าหลัก">
+        <div class="status-bar"><span>23:20</span><span class="system-icons"><ion-icon name="cellular"></ion-icon><ion-icon name="wifi"></ion-icon><ion-icon name="battery-charging"></ion-icon></span></div>
+        <header class="home-hero">
+          <div class="hero-top"><span class="avatar mini-character"></span><strong>สวัสดี !</strong><ion-icon class="chat-icon" name="chatbubble-ellipses-outline"></ion-icon></div>
+          <h1>เปิดบัญชีง่าย <span>ออมเงินได้ลงทุนดี</span><br />เปิดทีเดียว ได้ถึง 4 บัญชี อนุมัติไวใน 2 นาที</h1>
+          <button class="black-pill">เปิดเลย ! <ion-icon name="arrow-forward"></ion-icon></button>
+          <div class="money-illo"><ion-icon name="cash-outline"></ion-icon></div>
+          <button class="side-tab" aria-label="เลื่อน"><ion-icon name="chevron-back"></ion-icon></button>
+        </header>
+
+        <section class="promo-carousel" aria-label="โปรโมชัน">
+          <article class="promo-card promo-left"></article>
+          <article class="promo-card promo-main"><div><strong>มาเป็นผู้ใช้งานกลุ่มแรก<br />ที่จะได้ถือ <mark>"บัตรไดม์เนิน"</mark></strong><span>ลงทะเบียนใช้งาน</span></div><div class="card-art">ไดม์<br />เนิน</div></article>
+          <article class="promo-card promo-right"></article>
+        </section>
+        <div class="dots"><b></b><i></i><i></i><i></i><i></i></div>
+
+        <section class="market-row" aria-label="ตลาด">
+          <article><small>🇺🇸 S&P500 ETF</small><b class="up">↗ 0.78%</b><strong>SPY</strong></article>
+          <article><small>🇺🇸 NDQ100 ETF</small><b class="up">↗ 2.34%</b><strong>QQQM</strong></article>
+          <article><small>🇹🇭 SET</small><b class="down">↘ 0.79%</b><strong>1,572.50</strong></article>
+          <article><small>🇺🇸 USD → THB</small><b class="up">↗ 0.46%</b><strong>32.87 THB</strong></article>
+        </section>
+
+        <section class="news-section">
+          <h2><span class="news-icon"><ion-icon name="newspaper"></ion-icon></span>ข่าวฮิต <ion-icon name="chevron-up"></ion-icon></h2>
+          <article class="news-card"><div><b>PFE</b><span>🔥 Hot !</span><ion-icon name="arrow-forward"></ion-icon></div><p>หุ้น Pfizer ร่วง 2.7 % ความเชื่อมั่นของนักลงทุนลดลงต่อแนวโน้มรายได้ปี 2569 หลังจากบริษัทอยู่ในช่วงเปลี่ยนผ่าน CFO</p><u>fool.com · 7 ชั่วโมง</u></article>
+        </section>
+
+        <section class="watch-list"><h2>รายการโปรด <ion-icon name="information-circle-outline"></ion-icon><span><ion-icon name="add"></ion-icon><ion-icon name="chevron-up"></ion-icon></span></h2><div><b>6 รายการ</b><b>% เปลี่ยนแปลงจากวันก่อนหน้า</b></div></section>
+      </section>
+
+      <section class="screen screen-me" id="me-screen" aria-label="ฉัน">
+        <div class="blue-profile">
+          <div class="status-bar light"><span>23:20</span><span class="system-icons"><ion-icon name="cellular"></ion-icon><ion-icon name="wifi"></ion-icon><ion-icon name="battery-charging"></ion-icon></span></div>
+          <header class="profile-head"><button class="setting"><ion-icon name="settings-outline"></ion-icon> การตั้งค่า</button><h1>ฉัน</h1><p>คุณเป็น</p><h2>ชาร์ลี แชมเปี้ยน <ion-icon name="arrow-forward-outline"></ion-icon></h2><div><span>มุ่งมั่น</span><span>มีประสิทธิภาพ</span></div><span class="big-character mini-character"></span><button class="side-tab" aria-label="เลื่อน"><ion-icon name="chevron-back"></ion-icon></button></header>
+          <article class="club-card"><div><h3>มาเป็น Dime! Club กันไหม ? <ion-icon name="arrow-forward-outline"></ion-icon></h3><p>เป็นสมาชิก Dime! Club แล้วดียังไง ไปดูกัน !</p></div><strong>DIME<br />CLUB</strong></article>
         </div>
-        <div class="user-chip" hidden>
-          <ion-icon name="person-circle"></ion-icon>
-          <span class="user-chip-name">สมาชิก</span>
-          <button class="logout-button" type="button">ออก</button>
+        <div class="me-content">
+          <section class="dime-jai"><h2>Dime! Jai <span><ion-icon name="refresh-outline"></ion-icon> แผนประกันของฉัน</span></h2><article><div class="bag-art">✧</div><div><h3>Travel Insurance</h3><p>คุ้มครองทุกทริป อุ่นใจทุกเส้นทาง<br />เหมือนมีเครื่องรางติดตัว</p></div><button>ซื้อเลย ! <ion-icon name="arrow-forward-outline"></ion-icon></button></article></section>
+          <section class="coupons"><h2>คูปองและแพ็กเกจ</h2><div class="coupon-grid"><article class="coupon orange"><h3>Dime! ดีลเด็ด</h3><p>ส่วนลดสุดคุ้มสำหรับคุณ</p><button>เก็บเลย</button><b>ช้าหมดดดนะ !</b></article><article class="coupon green"><h3>Dime! Fan</h3><p>เทรดฟรีเพิ่ม + ค่าคอมสุดคุ้ม</p><button>ซื้อเลย</button><b>เริ่มต้น 39 บาท</b></article></div></section>
+          <section class="mission"><h2>ทำภารกิจ พร้อมรับรางวัลสุดพิเศษ ! <ion-icon name="refresh-outline"></ion-icon></h2><div class="mission-cards"><span></span><span></span><span></span></div></section>
         </div>
+      </section>
+
+      <nav class="bottom-nav" aria-label="แท็บหลัก">
+        <button class="tab active" data-target="home-screen"><ion-icon name="home"></ion-icon><span>หน้าหลัก</span></button>
+        <button class="tab"><ion-icon name="analytics-outline"></ion-icon><span>ลงทุน</span></button>
+        <button class="tab"><ion-icon name="wallet-outline"></ion-icon><span>เงินสด</span></button>
+        <button class="tab"><ion-icon name="pie-chart-outline"></ion-icon><span>สินทรัพย์</span></button>
+        <button class="tab"><ion-icon name="time-outline"></ion-icon><span>รายการ</span></button>
+        <button class="tab" data-target="me-screen"><ion-icon name="person"></ion-icon><span>ฉัน</span></button>
       </nav>
-    </header>
-
-    <main class="page-shell">
-      <section class="hero-slider" aria-label="โปรโมชั่น">
-        <button class="slider-arrow" aria-label="ก่อนหน้า"><ion-icon name="chevron-back"></ion-icon></button>
-        <div class="hero-copy">
-          <span class="hero-pill">WEBEIEI MEMBER</span>
-          <strong>ล็อคอินง่าย</strong>
-          <p>เข้าสู่ระบบหรือสมัครสมาชิกผ่านหน้าต่างโมเดิลที่ใช้งานง่ายบนมือถือ</p>
-        </div>
-        <button class="slider-arrow" aria-label="ถัดไป"><ion-icon name="chevron-forward"></ion-icon></button>
-      </section>
-
-      <section class="auth-panel" aria-label="ระบบสมาชิก">
-        <div>
-          <span class="panel-eyebrow">Member Center</span>
-          <h1>ศูนย์สมาชิก</h1>
-          <p>จัดการบัญชีผ่านโมเดิล ไม่รบกวนหน้าแรก และรองรับการใช้งานบนมือถือ</p>
-        </div>
-        <div class="auth-actions">
-          <button class="primary-action auth-register" type="button">สมัครสมาชิก</button>
-          <button class="secondary-action auth-login" type="button">เข้าสู่ระบบ</button>
-        </div>
-      </section>
-
-      <section class="stats-grid" aria-label="สถิติร้านค้า">
-        <article class="stat-card">
-          <ion-icon name="person-outline"></ion-icon>
-          <div><h2>สมาชิก<br />ทั้งหมด</h2><p id="member-count">58 คน</p></div>
-        </article>
-        <article class="stat-card">
-          <ion-icon name="list"></ion-icon>
-          <div><h2>หมวด<br />หมู่</h2><p>4 หมวด</p></div>
-        </article>
-        <article class="stat-card">
-          <ion-icon name="bag-handle"></ion-icon>
-          <div><h2>พร้อม<br />จำหน่าย</h2><p>2 ชิ้น</p></div>
-        </article>
-        <article class="stat-card">
-          <ion-icon name="cube-outline"></ion-icon>
-          <div><h2>จำหน่าย<br />ไปแล้ว</h2><p>3 ครั้ง</p></div>
-        </article>
-      </section>
-
-      <section class="announcement" aria-label="ประกาศ">
-        <div class="announcement-badge"><ion-icon name="megaphone"></ion-icon>ประกาศ</div>
-        <div class="ticker" aria-live="polite">
-          <p>เว็บตลาดทุนเริ่มต้น 50k เติมเกม บริการรวดเร็ว ปลอดภัย พร้อมโปรโมชั่นใหม่ทุกสัปดาห์</p>
-        </div>
-      </section>
     </main>
-
-    <div class="auth-modal" id="auth-modal" hidden>
-      <div class="auth-modal__backdrop" data-close-modal></div>
-      <section class="auth-modal__card" role="dialog" aria-modal="true" aria-labelledby="auth-modal-title">
-        <button class="auth-modal__close" type="button" aria-label="ปิด" data-close-modal><ion-icon name="close"></ion-icon></button>
-        <div class="auth-modal__hero">
-          <span class="auth-modal__icon"><ion-icon name="shield-checkmark"></ion-icon></span>
-          <p>Webeiei Account</p>
-          <h2 id="auth-modal-title">เข้าสู่ระบบ</h2>
-        </div>
-        <form class="auth-form" id="auth-form" novalidate>
-          <label class="register-only" for="auth-username">ชื่อผู้ใช้</label>
-          <input class="register-only" id="auth-username" name="username" autocomplete="username" placeholder="ชื่อผู้ใช้" />
-          <label for="auth-email">อีเมล</label>
-          <input id="auth-email" name="email" type="email" autocomplete="email" placeholder="your@email.com" required />
-          <label for="auth-password">รหัสผ่าน</label>
-          <input id="auth-password" name="password" type="password" autocomplete="current-password" placeholder="รหัสผ่าน" required minlength="6" />
-          <p class="auth-error" id="auth-error" role="alert" hidden></p>
-          <button class="auth-submit" type="submit">เข้าสู่ระบบ</button>
-        </form>
-        <p class="auth-switch"><span id="auth-switch-text">ยังไม่มีบัญชี?</span> <button id="auth-switch-button" type="button">สมัครสมาชิก</button></p>
-      </section>
-    </div>
-
     <script src="script.js"></script>
   </body>
 </html>
