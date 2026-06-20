@@ -1,9 +1,12 @@
 import { useState } from "react";
 
+import { defaultFuelPrices } from "../services/fuelData";
 import { createTrip } from "../services/trips";
 
+const defaultTrip = { distance: "", fuelCost: "", income: "", platform: "" };
+
 export default function NewTrip() {
-  const [trip, setTrip] = useState({ platform: "", distance: "", income: "" });
+  const [trip, setTrip] = useState(defaultTrip);
   const [status, setStatus] = useState("");
 
   async function handleSubmit(e) {
@@ -15,9 +18,9 @@ export default function NewTrip() {
         platform: trip.platform,
         distance: Number(trip.distance),
         income: Number(trip.income),
-        fuel_cost: 0
+        fuel_cost: Number(trip.fuelCost)
       });
-      setTrip({ platform: "", distance: "", income: "" });
+      setTrip(defaultTrip);
       setStatus("บันทึกสำเร็จ");
     } catch (error) {
       setStatus(`บันทึกไม่สำเร็จ: ${error.message}`);
@@ -36,6 +39,7 @@ export default function NewTrip() {
         </select>
         <input value={trip.distance} placeholder="ระยะทาง (กม.)" className="w-full border rounded-xl p-3" onChange={(e) => setTrip({ ...trip, distance: e.target.value })} type="number" min="0" step="0.1" required />
         <input value={trip.income} placeholder="รายได้" className="w-full border rounded-xl p-3" onChange={(e) => setTrip({ ...trip, income: e.target.value })} type="number" min="0" step="1" required />
+        <input value={trip.fuelCost} placeholder={`ค่าน้ำมัน เช่น ${defaultFuelPrices[0].price}`} className="w-full border rounded-xl p-3" onChange={(e) => setTrip({ ...trip, fuelCost: e.target.value })} type="number" min="0" step="0.01" required />
         <button className="w-full bg-indigo-500 text-white py-3 rounded-xl hover:bg-indigo-600">บันทึก</button>
         {status && <p className="text-sm text-gray-500">{status}</p>}
       </form>
