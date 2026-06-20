@@ -7,20 +7,24 @@ export default function App() {
   return (
     <Routes>
       {publicRoutes.map((route) => (
-        <Route key={route.path} path={route.path} element={route.element} />
+        <Route
+          key={route.path}
+          path={route.path}
+          element={route.element}
+        />
       ))}
-      <Route
-        path="*"
-        element={
-          <Layout>
-            <Routes>
-              {appRoutes.map((route) => (
-                <Route key={route.path} path={route.path} element={route.element} />
-              ))}
-            </Routes>
-          </Layout>
-        }
-      />
+
+      {appRoutes.map((route) => (
+        <Route
+          key={route.path}
+          path={route.path}
+          element={
+            <Layout>
+              {route.element}
+            </Layout>
+          }
+        />
+      ))}
     </Routes>
   );
 }
