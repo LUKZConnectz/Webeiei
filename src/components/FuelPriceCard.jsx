@@ -1,11 +1,6 @@
-const fuels = [
-  { name: "Gasohol 91", price: 34.68 },
-  { name: "Gasohol 95", price: 36.15 },
-  { name: "E20", price: 32.34 },
-  { name: "Diesel", price: 32.94 }
-];
+import { defaultFuelPrices } from "../services/fuelData";
 
-export default function FuelPriceCard() {
+export default function FuelPriceCard({ fuels = defaultFuelPrices }) {
   return (
     <div className="bg-white rounded-3xl p-6 shadow-sm">
       <h2 className="font-semibold mb-5">ราคาน้ำมันวันนี้</h2>
